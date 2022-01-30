@@ -35,6 +35,8 @@ $query = mysqli_query($db,$sql);
                     <a href="#!">Start Bootstrap</a>
                     on <?php echo $data['created_at']?>
                 </p>
+                <img src=".<?php echo $data['image']?>" alt="post image" width="200px">
+                <video src=".<?php echo $data['video']?>" width="320" height="240" controls></video>
             </div>
             <!-- Divider-->
             <hr class="my-4" />
