@@ -1,9 +1,9 @@
 <?php include './includes/head.php' ?>
 
-<?php 
+<?php
 
 $sql = "SELECT * FROM `posts`";
-$query = mysqli_query($db,$sql);
+$query = mysqli_query($db, $sql);
 ?>
 
 <!-- Page Header-->
@@ -23,27 +23,31 @@ $query = mysqli_query($db,$sql);
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
-            <?php while($data = mysqli_fetch_assoc($query)) : ?>
-            <!-- Post preview-->
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title"><?php echo $data['title']?></h2>
-                    <h3 class="post-subtitle"><?php echo $data['description']?></h3>
-                </a>
-                <p class="post-meta">
-                    Posted by
-                    <a href="#!">Start Bootstrap</a>
-                    on <?php echo $data['created_at']?>
-                </p>
-                <img src=".<?php echo $data['image']?>" alt="post image" width="200px">
-                <video src=".<?php echo $data['video']?>" width="320" height="240" controls></video>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
+            <?php while ($data = mysqli_fetch_assoc($query)) : ?>
+                <!-- Post preview-->
+                <div class="post-preview ">
+                    <a href="post.html">
+                        <h2 class="post-title"><?php echo $data['title'] ?></h2>
+                        <h3 class="post-subtitle"><?php echo $data['description'] ?></h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#!">Start Bootstrap</a>
+                        on <?php echo $data['created_at'] ?>
+                    </p>
+                    <img src=".<?php echo $data['image'] ?>" alt="post image" width="200px">
+                    <video src=".<?php echo $data['video'] ?>" width="320" height="240" controls></video>
+
+                    <div class="mt-5 d-flex justify-content-end">
+                        <a href="./edit.php?postId=<?php echo $data['id'] ?>"><button class="btn btn-outline-info btn-sm">Edit</button></a>
+                    </div>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
 
             <?php endwhile; ?>
 
-    
+
         </div>
     </div>
 </div>
